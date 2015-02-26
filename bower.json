@@ -1,0 +1,24 @@
+{
+  "name": "simpleowl",
+  "version": "0.1.1",
+  "description": "Simplified carousel",
+  "main": [
+    "build/simpleowl.js",
+    "build/simpleowl.min.js"
+  ],
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "dependencies": {
+    "jquery": "^2.1.1",
+    "owl.carousel": "*"
+  },
+  "devDependencies": {},
+  "ignore": [
+    "source/",
+    ".gitignore",
+    "package.json",
+    "build/simpleowl.dev.js"
+  ]
+}
