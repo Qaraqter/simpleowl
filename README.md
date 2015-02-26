@@ -1,14 +1,14 @@
-# simpletope 0.2.1
-> No more scripting required to integrate isotope into your website! This plugin uses HTML5 attributes rather then JS codes. It also supports hashes so you can directly link to a filter.
+# simpleowl 0.0.1
+> No more scripting required to integrate carousel.owl into your website! This plugin uses HTML5 attributes rather then JS codes.
 
 ## Bower
-Install with Bower: ``bower install simpletope``
+Install with Bower: ``bower install simpleowl``
 
 ## Documentation
-[See here for more info](https://github.com/Qaraqter/simpletope/blob/master/DOCUMENTATION.md)
+[See here for more info](https://github.com/Qaraqter/simpleowl/blob/master/DOCUMENTATION.md)
 
 ## Examples
-There are 3 examples found in [examples/single](https://github.com/Qaraqter/simpletope/tree/master/examples/single), [examples/multiple](https://github.com/Qaraqter/simpletope/tree/master/examples/multiple) and [examples/hash](https://github.com/Qaraqter/simpletope/tree/master/examples/hash).
+Coming.
 
 # Using this repo
 ## NodeJS
@@ -27,12 +27,12 @@ bower install
 ```
 
 ### Building
-To build the source files into `simpletope.js`, `simpletope.min.js`  and `simpletope.dev.js`, simple run:
+To build the source files into `simpleowl.js`, `simpleowl.min.js`  and `simpleowl.dev.js`, simple run:
 ```shell
 npm run build
 ```
 
-To watch the source files for new changes and to automatically build `simpletope.dev.js`:
+To watch the source files for new changes and to automatically build `simpleowl.dev.js`:
 ```shell
 npm run watch
 ```
@@ -49,4 +49,4 @@ npm run build-main
 ```
 
 ## SourceMap
-`Simpletop.dev.js` contains a sourcemap and is - beside the sourcemap - identical to `simpletope.js`
+`simpleowl.dev.js` contains a sourcemap and is - beside the sourcemap - identical to `simpleowl.js`
