@@ -14,36 +14,20 @@ module.exports = function(){
             settings: {
                 itemSelector: '.item',
                 dataSelectors: {
-                    filter: 'data-filter',
-                    type: 'data-filter-type',
-                    filterMethod: 'data-filter-method',//Depracated
-                    filterMultiple: 'data-filter-multiple',
-                    sortBy: 'data-sort-by',
-                    sortBySelector: 'data-sort-selector',
-                    sortDirection: 'data-sort-direction',
-                    forContainer: 'data-isotope-container',
-                    clearFilter: 'data-clear-filter',
-                    feedback: 'data-feedback'
+                    carousel: 'data-carousel',
+                    loop: 'data-carousel-loop',
+                    refreshRate: 'data-carousel-refresh-rate',
+                    center: 'data-carousel-center'
                 },
-                defaults: {
-                    filter: "*",
-                    sort: "original-order",
-                    classNames: {
-                        active: 'active'
-                    }
-                }
+                defaults: {}
             }
         };
 
-        instances.push(new $.simpleIsotope($.extend(obj, $args)));
+        instances.push(new $.simpleOwl($.extend(obj, $args)));
     });
 
     $.each(instances, function(idx, elm) {
-        elm.sorter._createButtons.call(elm);
-        elm.filter._createButtons.call(elm);
-        elm.clear._createButtons.call(elm);
-        elm.text._feedback.call(elm);
-        elm.clear.__check.call(elm);
+        // elm.sorter._createButtons.call(elm
     });
 
     return instances;
