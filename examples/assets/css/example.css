@@ -102,3 +102,15 @@ article .item {
     background: blue;
     margin:5px;
 }
+[data-carousel-previous],
+[data-carousel-next] {
+    padding:5px;
+}
+
+[data-carousel-previous] {
+    float: left;
+}
+
+[data-carousel-next] {
+    float: right;
+}

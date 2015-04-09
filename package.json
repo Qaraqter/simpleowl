@@ -1,22 +1,24 @@
 {
-    "name": "simpleowl",
-    "version": "0.1.1",
-    "description": "Simplified carousel",
-    "dependencies": {
-        "browserify": "^8.1.3",
-        "uglifyjs": "^2.3.6",
-        "watchify": "^2.3.0"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "build-dev": "browserify source/simpleowl.amd.js -d -s simpleOwl > build/simpleowl.dev.js",
-        "build-main": "browserify source/simpleowl.amd.js -s simpleOwl > build/simpleowl.js",
-        "build-min": "browserify source/simpleowl.amd.js -s simpleOwl | uglifyjs -c > build/simpleowl.min.js",
-        "build": "npm run build-main && npm run build-min && npm run build-dev",
-        "watch": "watchify source/simpleowl.amd.js -d -s simpleOwl -o build/simpleowl.dev.js -v"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/Qaraqter/simpleowl.git"
-    }
+  "name": "simpleowl",
+  "version": "0.1.1",
+  "description": "Simplified carousel",
+  "dependencies": {
+    "browserify": "^8.1.3",
+    "node-sass": "^2.0.1",
+    "uglifyjs": "^2.3.6",
+    "watchify": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build-dev": "browserify source/js/simpleowl.amd.js -d -s simpleOwl > build/js/simpleowl.dev.js",
+    "build-main": "browserify source/js/simpleowl.amd.js -s simpleOwl > build/js/simpleowl.js",
+    "build-min": "browserify source/js/simpleowl.amd.js -s simpleOwl | uglifyjs -c > build/js/simpleowl.min.js",
+    "build": "npm run build-main && npm run build-min && npm run build-dev && npm run sass",
+    "watch": "watchify source/js/simpleowl.amd.js -d -s simpleOwl -o build/js/simpleowl.dev.js -v",
+    "sass": "node-sass --output-style compressed source/scss/simpleowl.scss build/css/simpleowl.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Qaraqter/simpleowl.git"
+  }
 }

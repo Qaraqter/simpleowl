@@ -13,10 +13,10 @@
         <!-- Stylesheets -->
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
         <!-- Owl Stylesheets -->
-        <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="../assets/css/owl.theme.default.css">
+        <link rel="stylesheet" href="../../build/css/simpleowl.css">
         <link rel="stylesheet" href="../assets/css/example.css">
 
         <!--[if lt IE 9]>
@@ -32,7 +32,8 @@
     <body>
 
         <div class="container">
-            <article data-carousel data-carousel-loop>
+            <h1>Responsive example (loop, nav, autoplay with pause)</h1>
+            <article data-carousel data-carousel-loop data-carousel-autoplay="6000" data-carousel-autoplay-pause-hover>
 
                 <div class="item col-sm-3">
                     <h1>1</h1>
@@ -59,43 +60,52 @@
                 </div>
 
             </article>
+
+            <div data-carousel-previous><i class="fa fa-chevron-left"></i></div>
+            <div data-carousel-next><i class="fa fa-chevron-right"></i></div>
+
         </div>
 
         <br>
 
         <div class="container">
-            <article data-carousel data-carousel-loop data-carousel-center>
+            <h1>Responsive example (loop, nav, dots)</h1>
+            <article id="carousel2" data-carousel data-carousel-loop>
 
-                <div class="item col-sm-3">
+                <div class="item col-sm-3 col-md-6">
                     <h1>1</h1>
                 </div>
 
-                <div class="item col-sm-3">
+                <div class="item col-sm-3 col-md-6">
                     <h1>2</h1>
                 </div>
 
-                <div class="item col-sm-3">
+                <div class="item col-sm-3 col-md-6">
                     <h1>3</h1>
                 </div>
 
-                <div class="item col-sm-3">
+                <div class="item col-sm-3 col-md-6">
                     <h1>4</h1>
                 </div>
 
-                <div class="item col-sm-3">
+                <div class="item col-sm-3 col-md-6">
                     <h1>5</h1>
                 </div>
 
-                <div class="item col-sm-3">
+                <div class="item col-sm-3 col-md-6">
                     <h1>6</h1>
                 </div>
 
             </article>
+
+            <div data-carousel-previous data-carousel-container="carousel2"><i class="fa fa-chevron-left"></i></div>
+            <div data-carousel-next data-carousel-container="carousel2"><i class="fa fa-chevron-right"></i></div>
+            <div data-carousel-dots data-carousel-container="carousel2"></div>
         </div>
 
         <!-- vendors -->
         <script src="../assets/js/jquery.min.js"></script>
         <script src="../assets/js/owl.carousel.js"></script>
-        <script src="../../build/simpleowl.dev.js"></script>
+        <script src="../../build/js/simpleowl.dev.js"></script>
     </body>
 </html>

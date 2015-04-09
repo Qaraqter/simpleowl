@@ -17,7 +17,20 @@ module.exports = function(){
                     carousel: 'data-carousel',
                     loop: 'data-carousel-loop',
                     refreshRate: 'data-carousel-refresh-rate',
-                    center: 'data-carousel-center'
+                    center: 'data-carousel-center',
+                    forContainer: 'data-carousel-container',
+
+                    next: 'data-carousel-next',
+                    prev: 'data-carousel-previous',
+                    dots: 'data-carousel-dots',
+
+                    autoPlay: 'data-carousel-autoplay',
+                    autoPlayPauseOnHover: 'data-carousel-autoplay-pause-hover',
+
+                    startPosition: 'data-carousel-startposition',
+                    slideBy: 'data-carousel-slideby',
+
+                    video: 'data-carousel-video'
                 },
                 defaults: {}
             }
@@ -27,7 +40,7 @@ module.exports = function(){
     });
 
     $.each(instances, function(idx, elm) {
-        // elm.sorter._createButtons.call(elm
+        elm[0].events._attach.call(elm[0], elm[1]);
     });
 
     return instances;
