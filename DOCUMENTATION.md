@@ -1,146 +1,95 @@
 # Table of Contents
   1. [Markup](#markup)
-  1. [Creating simpletope](#creating-simpletope)
-  1. [Filters](#filters)
-    1. [Creating a filter](#creating-a-filter)
-    1. [Reset filters](#reset-filters)
-    1. [Single or multiple filters](#single-or-multiple-filters)
-    1. [Advanced filtering](#advanced-filtering)
-  1. [Sorting](#sorting)
-    1. [Creating a sorter](#creating-a-sorter)
-    1. [Sorting selector](#sorting-selector)
-    1. [Sorting direction](#sorting-direction)
-  1. [Multiple isotope instances](#multiple-isotope-instances)
-    1. [Target a single Isotope instance](#target-a-single-isotope-instance)
-  1. [Layout modes](#layout-modes)
-  1. [Feedback](#feedback)
-  1. [Clear filters](#clear-filters)
-  1. [Hash support](#hash-support)
-  1. [imagesLoaded](#imagesloaded)
+  1. [Creating simpleowl](#creating-simpleowl)
+  1. [Navigation](#navigation)
+    1. [Next or previous slide](#next-or-previous-slide)
+    1. [Dots](#dots)
+  1. [Multiple carousel instances](#multiple-carousel-instances)
+    1. [Target a single carousel instance](#target-a-single-carousel-instance)
+  1. [Extra options](#extra-options)
 
 ## Markup
-All the data used for filter and sorting are kept in the markup. It could be a text value, like a title or tag. Or it could be a number, like a price, measurement, or rating.
+All slides are kept within a container with `.item` as a child, every element that doesn't have this class will not be slided. In addition this script will read out any grid to keep it responsive.
 
-For our example, each item element has several data points that can be used for sorting. There’s the elemental symbol, number, name of the element, weight, and category.
-
-    <div id="container" data-isotope>
-        <div class="item transition metal" data-category="transition">
-            <p class="number">79</p>
-            <h3 class="symbol">Au</h3>
-            <h2 class="name">Gold</h2>
-            <p class="weight">196.966569</p>
-        </div>
-        <div class="item metalloid" data-category="metalloid">
-            <p class="number">51</p>
-            <h3 class="symbol">Sb</h3>
-            <h2 class="name">Antimony</h2>
-            <p class="weight">121.76</p>
+    <header data-carousel>
+        <div class="item col-sm-12">
+            <div class="container">
+                <img src="../assets/img/flashgordon.png" class="pull-right">
+                <div class="pull-left">
+                    <h1>Flash Gordon is the hero of a science fiction</h1>
+                    <p>First published January 7, 1934, the strip was inspired by and created to compete with the already established Buck Rogers adventure strip. Also inspired by these series were comics....</p>
+                </div>
+            </div>
         </div>
         ...
-    </div>
+    </header>
 
-## Creating simpletope
-In order to trigger simpletope you need to specify `data-isotope` without a value on the container of your items.
+## Creating simpleowl
+In order to trigger simpleowl you need to specify `data-carousel` without a value on the container of your items.
 
-    <div id="container" data-isotope>
+    <div id="container" data-carousel>
         ...
     </div>
 
-## Filters
-### Creating a filter
-You can specify filters by using the `data-filter` attribute on an element. The value of this attribute should be a valid CSS selector of the element you want to filter.
+## Navigation
+### Next or previous slide
+You can specify your own element as a next or previous button, in order to do this you need to use `data-carousel-next` or `data-carousel-previous`
 
-#### Filter on class:
-    <button data-filter=".metal">Metal</button>
+    <div data-carousel-next> Next </div>
+    <div data-carousel-previous> Previous </div>
 
-#### Filter on attribute value:
-    <button data-filter="[data-category='transition']">Transition</button>
+### Dots
+You can also specify your own dots container. Which will be clickable. Simple add the following code:
 
-### Reset filters
-To reset all filters you can specify the value `*` in the `data-filter` attribute:
+    <div data-carousel-dots data-carousel-container="containerId"></div>
 
-    <button data-filter="*" class="btn btn-default">All</button>
-
-### Single or multiple filters
-By default the filters will only apply one filter. if you would like to have multiple filters applied then you can use `data-filter-type` attribute on the container of your items. The value of this attribute can be `multiple` or `single`.
-
-    <div id="container" data-isotope data-filter-type="multiple">
-        ...
-    </div>
-
-### Advanced filtering
-When using multiple filters then by default the filters will apply the filter(s) with the `or` statement, this means `blue` or `red` will be filtered, if you would like to filter on `blue` and `red` then you can specify the `data-filter-method` on the container of your items.
-
-    <div id="container" data-isotope data-filter-method="and">
-        ...
-    </div>
+__ Notice: `data-carousel-container` with a valid ID is required__
 
 
-## Sorting
-### Creating a sorter
-You can specify sorting by using the `data-sort-by` attribute on an element. By default this script will look for a class based on this name.
+## Multiple carousel instances
+### Target a single carousel instance
+By default the navigation will be applied to all carousel instances created on a page, if you want to target a single carousel then you can apply `data-carousel-container`, the value of this attribute should be a valid HTML id that holds your item (see [Markup](#markup) for the items):
 
-With the [Markup](#markup) above, we can set data-sort-by to `name`, `symbol`, `number`, `weight`, and `category`.
-
-    <button data-sort-by="category">Category</button>
-
-##### Two additional `data-sort-by` options are built in:
-
-  - `original-order` will use the original order of the item elements to arrange them in the layout.
-  - `random` is a random order.
-
-### Sorting selector
-By default `data-sort-by` will look at the contents of the specified name as class.
-
-If you want to sort on attributes then you can specify `data-sort-selector`, this should be a valid CSS selector.
-
-    <button data-sort-by="category" data-sort-selector="[data-category]">Category</button>
-
-### Sorting direction
-If you want to control the ascending or descending options then you can use `data-sort-direction` attribute with `asc` or `desc` as value.
-
-    <button data-sort-by="category" data-sort-selector="[data-category]" data-sort-direction="asc">Categories ascending</button>
-    <button data-sort-by="category" data-sort-selector="[data-category]" data-sort-direction="desc">Categories descending</button>
-
-## Multiple Isotope instances
-### Target a single Isotope instance
-By default the filters will be applied to all Isotope instances created a page, if you want to target a single isotope then you can apply `data-isotope-container` on a common container that holds your filters, the value should be a valid HTML id that holds your items (see [Markup](#markup) for the items):
-
-    <div id="filterButtonsByClass" data-isotope-container="container">
-        <label>Filter by color:</label>
-        <div class="btn-group">
-            <button data-filter=".blue" class="btn btn-default">Blue</button>
-            <button data-filter=".black" class="btn btn-default">Black</button>
-            <button data-filter=".brown" class="btn btn-default">Brown</button>
+    <header id="slider" data-carousel>
+        <div class="item col-sm-12">
+            <div class="container">
+                <img src="../assets/img/flashgordon.png" class="pull-right">
+                <div class="pull-left">
+                    <h1>Flash Gordon is the hero of a science fiction</h1>
+                    <p>First published January 7, 1934, the strip was inspired by and created to compete with the already established Buck Rogers adventure strip. Also inspired by these series were comics....</p>
+                </div>
+            </div>
         </div>
-    </div>
-
-
-## Layout modes
-You can specify the layout mode by adding `data-layout` to the container of your items. This can be any valid isotope layout modes, by default we use `fitRows`. Keep in mind that you need to include the javascript file of the layout mode you want to use. (in this example you need to download and include masonry)
-
-    <div id="container" data-isotope data-layout="masonry">
         ...
-    </div>
+    </header>
+    <div class="next" data-carousel-next data-carousel-container="slider"></div>
 
-## Feedback
-You can specify a feedback line with the current numbers of items shown, you can use `data-feedback` with the attribute value as the text you want. You can use the placeholder `{delta}` to get the total items in a number.
 
-    <div class="feedback">
-        <div data-feedback="Showing {delta} items" data-isotope-container="results"></div>
-    </div>
+## Extra options
+### Center
+Start the slides centered:
+    ``data-carousel-center``
 
-The above example would generate: `Showing 9 items`
+### Loop
+Loop all slides:
+    ``data-carousel-loop``
 
-## Clear filters
-You can clear all applied filters with `data-clear-filter`, the element will be hidden until a filter has been applied.
+### Autoplay
+Play a loop through slides, by default the value is 5000ms, you can specify the value by setting a number:
+    ``data-carousel-autoplay="5000"``
 
-    <div data-clear-filter class="close"><i class="fa fa-close"></i> Clear filters</div>
+### Autoplay pause on hover
+Pause the play loop when an user is hovering an item:
+    ``data-carousel-autoplay-pause-hover``
 
-## Hash support
-You can enable hash support by adding `data-hash` to the container of your items. The hash will automatically update the URL with `http://path/#category=transition`
+### Set the StartPosition
+Define the start position to begin with:
+    ``data-carousel-startposition="2"``
 
-    <div id="container" data-isotope data-hash>
+### Slide by
+Define how many slides should be slided within one step:
+    ``data-carousel-slideby="2"``
 
-## imagesLoaded
-[imagesLoaded](http://imagesloaded.desandro.com/) is supported, just include the script `imagesloaded.js` after loading `isotope.js`. 
+### Responsive Refresh Rate
+By default this script will recalculate responsive items 100ms after a window resize has been triggered, to change this:
+    ``data-carousel-refresh-rate="50"``
