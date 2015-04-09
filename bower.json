@@ -1,10 +1,11 @@
 {
   "name": "simpleowl",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "description": "Simplified carousel",
   "main": [
-    "build/simpleowl.js",
-    "build/simpleowl.min.js"
+    "build/js/simpleowl.js",
+    "build/js/simpleowl.min.js",
+    "build/css/simpleowl.css"
   ],
   "directories": {
     "doc": "docs",
