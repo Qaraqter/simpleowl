@@ -43,7 +43,7 @@ You can also specify your own dots container. Which will be clickable. Simple ad
 
     <div data-carousel-dots data-carousel-container="containerId"></div>
 
-__ Notice: `data-carousel-container` with a valid ID is required__
+** Notice: `data-carousel-container` with a valid ID is required **
 
 
 ## Multiple carousel instances
